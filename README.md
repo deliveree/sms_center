@@ -2,7 +2,7 @@
 
 The `sms_center` gem. A ruby interface to use SMS platform.\
 Support: Twilio, Nexmo, Telerivet, Infobip
-Require: Ruby >= 2.5.0, RestClient
+Require: Ruby >= 2.5.0, HttpClient
 
 ## Installation
 
@@ -45,4 +45,6 @@ end
 
 ## Using
 
+* SmsCenter.new(content, to_number).send
 * SmsCenter.new(content, to_number, country).send
+* SmsCenter.new(content, to_number, country, provider).send
