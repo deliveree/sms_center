@@ -45,6 +45,4 @@ end
 
 ## Using
 
-* SmsCenter.new(content, to_number).send
-* SmsCenter.new(content, to_number, country).send
-* SmsCenter.new(content, to_number, country, provider).send
+* SmsCenter.new(content, to_number, options).send
