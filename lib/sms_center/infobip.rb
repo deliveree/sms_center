@@ -4,8 +4,7 @@ class SmsCenter::Infobip
     api_key = keys[:INFOBIP_API_KEY]
     @api_url = 'https://5mzkg.api.infobip.com/sms/2/text/single'
     @headers = {
-      'Authorization' => "App #{api_key}",
-      'Content-Type' => 'application/json'
+      'Authorization' => "App #{api_key}"
     }
     @body = {
       "to": to_number,

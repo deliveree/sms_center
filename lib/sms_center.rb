@@ -36,14 +36,19 @@ class SmsCenter
     @@root_number_by_platform
   end
 
-  def initialize(content, to_number, country, platform = nil)
+  def initialize(content, to_number, options = {})
     platform_by_country = SmsCenter.platform_by_country
-    platform = platform_by_country[country.downcase.to_sym] || platform_by_country[:default] unless platform 
-    from_number = SmsCenter.root_number_by_platform[platform.to_sym]
-    @request = SmsCenter.const_get(platform, false).new(content, to_number, from_number, @@keys)
+    country = options[:country]
+    platform = options[:platform]
+
+    f_platform = country ? platform_by_country[country.downcase.to_sym] : platform_by_country[:default]
+    f_platform = platform.downcase.capitalize if platform
+
+    from_number = SmsCenter.root_number_by_platform[f_platform.to_sym]
+    @request = SmsCenter.const_get(f_platform, false).new(content, to_number, from_number, @@keys)
   end
 
   def send
-    RestClient.post(@request.api_url, @request.body, @request.headers)
+    HTTPClient.new.post_async(@request.api_url, @request.body, @request.headers)
   end
 end
