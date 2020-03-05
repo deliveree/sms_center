@@ -41,8 +41,8 @@ class SmsCenter
     country = options[:country]
     platform = options[:platform]
 
-    f_platform = country ? platform_by_country[country.downcase.to_sym] : platform_by_country[:default]
-    f_platform = platform.downcase.capitalize if platform
+    f_platform = country.present? ? platform_by_country[country.downcase.to_sym] : platform_by_country[:default]
+    f_platform = platform.downcase.capitalize if platform.present?
 
     from_number = SmsCenter.root_number_by_platform[f_platform.to_sym]
     @request = SmsCenter.const_get(f_platform, false).new(content, to_number, from_number, @@keys)
