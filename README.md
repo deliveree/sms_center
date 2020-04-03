@@ -44,5 +44,5 @@ end
 ```
 
 ## Using
-
+* options = {contry: 'th'} || {platform: 'Nexmo'}
 * SmsCenter.new(content, to_number, options).send
