@@ -10,7 +10,7 @@ class SmsCenter::Telerivet
     @body = {
       "content": content,
       "to_number": to_number
-    }
+    }.to_json
     @body["from_number"] = from_number if from_number
   end
 end
