@@ -4,8 +4,7 @@ class SmsCenter::Telerivet
     base64key = Base64.strict_encode64("#{keys[:TELERIVET_API_KEY]}:")
     @api_url = "https://api.telerivet.com/v1/projects/#{keys[:TELERIVET_PROJECT_ID]}/messages/send"
     @headers = {
-      'Authorization' => "Basic #{base64key}",
-      'Content-Type' => 'application/json'
+      'Authorization' => "Basic #{base64key}"
     }
     @body = {
       "content": content,

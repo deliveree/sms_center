@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.authors               = ['Deleveree']
   s.files                 = ['lib/sms_center.rb'] + Dir['lib/sms_center/*']
   s.required_ruby_version = '~> 2.5.0'
-  s.add_runtime_dependency 'rest-client', '>= 2.0.0'
+  s.add_runtime_dependency 'httpclient'
   s.homepage              =
     'https://github.com/deliveree/sms_center'
 end
