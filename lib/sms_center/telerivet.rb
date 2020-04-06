@@ -7,9 +7,9 @@ class SmsCenter::Telerivet
       'Authorization' => "Basic #{base64key}"
     }
     @body = {
-      "content": content,
-      "to_number": to_number
-    }.to_json
+      content: content,
+      to_number: to_number
+    }
     @body["from_number"] = from_number if from_number
   end
 end
