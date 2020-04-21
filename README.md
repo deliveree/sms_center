@@ -16,7 +16,11 @@ SmsCenter.configure do |config|
     th: 'Infobip',
     id: 'Twilio',
     ph: 'Telerivet',
-    vn: 'Twilio',
+    vn: {
+      MobiFone: 'Nexmo',
+      Viettel: 'Plivo',
+      default: 'Twilio',
+    }
     default: 'Nexmo'
   }
 
@@ -42,6 +46,8 @@ SmsCenter.configure do |config|
 end
 
 ```
+## Where to get the carrier names?
+Get the carrier names from this https://github.com/google/libphonenumber/blob/master/resources/carrier/en/
 
 ## Using
 * options = {contry: 'th'} || {platform: 'Nexmo'}
