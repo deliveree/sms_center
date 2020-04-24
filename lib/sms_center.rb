@@ -58,7 +58,7 @@ class SmsCenter
   private
   def platform_by_country(country, to_number)
     platform_by_country = SmsCenter.platform_by_country
-    platform = platform_by_country[country.downcase.to_sym]
+    platform = platform_by_country[country.downcase.to_sym] if country.present?
     if platform.is_a?(Hash)
       phone = Phonelib.parse(to_number, country.downcase.to_sym)
       platform_by_carrier = platform[phone.carrier.to_sym]
