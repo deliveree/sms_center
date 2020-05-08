@@ -61,7 +61,7 @@ class SmsCenter
     platform = platform_by_country[country.downcase.to_sym] if country.present?
     if platform.is_a?(Hash)
       phone = Phonelib.parse(to_number, country.downcase.to_sym)
-      platform_by_carrier = platform[phone.carrier.to_sym]
+      platform_by_carrier = platform[phone.carrier&.to_sym]
       platform = platform_by_carrier.present? ? platform_by_carrier : platform[:default]
     elsif platform.nil?
       platform = platform_by_country[:default]
