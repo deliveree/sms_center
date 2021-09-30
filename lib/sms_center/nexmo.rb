@@ -8,7 +8,8 @@ class SmsCenter::Nexmo
       api_secret: keys[:NEXMO_API_SECRET],
       to: to_number,
       text: content,
-      from: from_number
+      from: from_number,
+      type: 'unicode'
     }
   end
 end
