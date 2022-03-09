@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name                  = 'sms_center'
-  s.version               = '0.0.14'
-  s.date                  = '2021-09-30'
+  s.version               = '0.0.15'
+  s.date                  = '2022-03-09'
   s.summary               = 'Deliveree!'
   s.description           = 'A simple tool to using SMS third party'
   s.authors               = ['Deleveree']
